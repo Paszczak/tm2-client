@@ -1,0 +1,23 @@
+@use '../../styles/variables.scss';
+
+%navlink-shared {
+  font-size: variables.$default-size;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.inactive {
+  @extend %navlink-shared;
+  color: map-get($map: variables.$colors, $key: 'border');
+
+  &:hover {
+    color: map-get($map: variables.$colors, $key: 'decoration');
+  }
+}
+
+.active {
+  @extend %navlink-shared;
+  color: map-get($map: variables.$colors, $key: 'decoration');
+}
