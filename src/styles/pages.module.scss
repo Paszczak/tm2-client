@@ -1,0 +1,12 @@
+@use './variables';
+
+.main {
+  flex: 1;
+  overflow: scroll;
+  max-height: 60vh;
+
+  h1 {
+    margin-top: 0;
+    color: map-get($map: variables.$colors, $key: 'decoration');
+  }
+}

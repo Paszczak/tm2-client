@@ -1,0 +1,32 @@
+@use '../../styles/variables';
+
+%button-common {
+  padding: 0.25 * variables.$default-size variables.$default-size;
+  border: 1px solid map-get($map: variables.$colors, $key: 'decoration');
+  width: 100%;
+  font-size: 0.9 * variables.$default-size;
+  appearance: none;
+  outline: none;
+}
+
+.buttonFilled {
+  @extend %button-common;
+  background-color: map-get($map: variables.$colors, $key: 'decoration');
+  color: map-get($map: variables.$colors, $key: 'background');
+
+  &:hover {
+    background-color: map-get($map: variables.$colors, $key: 'background');
+    color: map-get($map: variables.$colors, $key: 'decoration');
+  }
+}
+
+.buttonLight {
+  @extend %button-common;
+  background-color: map-get($map: variables.$colors, $key: 'background');
+  color: map-get($map: variables.$colors, $key: 'decoration');
+
+  &:hover {
+    background-color: map-get($map: variables.$colors, $key: 'decoration');
+    color: map-get($map: variables.$colors, $key: 'background');
+  }
+}

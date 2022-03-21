@@ -1,0 +1,16 @@
+@use '../../styles/variables';
+
+.newsTitle {
+  margin-top: 0;
+  color: map-get($map: variables.$colors, $key: 'decoration');
+  font-size: variables.$default-size;
+}
+
+.newsBody {
+  font-size: variables.$default-size;
+}
+
+.newsFooter {
+  font-size: 0.7 * variables.$default-size;
+  color: map-get($map: variables.$colors, $key: 'border');
+}

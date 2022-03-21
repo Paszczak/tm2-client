@@ -1,4 +1,4 @@
-@use '../../styles/variables.scss';
+@use '../../styles/variables';
 
 %navlink-shared {
   font-size: variables.$default-size;
@@ -6,18 +6,79 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-}
 
-.inactive {
-  @extend %navlink-shared;
-  color: map-get($map: variables.$colors, $key: 'border');
+  @media (min-width: map-get($map: variables.$breakpoints, $key: 'mobile')) {
+    margin-left: variables.$default-size;
+  }
 
-  &:hover {
-    color: map-get($map: variables.$colors, $key: 'decoration');
+  .navIcon svg {
+    padding-top: 3px;
+    height: variables.$default-size;
+    margin-right: 0.5 * variables.$default-size;
   }
 }
 
-.active {
-  @extend %navlink-shared;
-  color: map-get($map: variables.$colors, $key: 'decoration');
+.navigation {
+  margin-bottom: variables.$default-size;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media (min-width: map-get($map: variables.$breakpoints, $key: 'mobile')) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid map-get($map: variables.$colors, $key: 'border');
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+
+    .title {
+      font-size: 1.25 * variables.$default-size;
+      font-weight: bold;
+      margin-left: 0.5 * variables.$default-size;
+      color: map-get($map: variables.$colors, $key: 'decoration');
+    }
+
+    svg {
+      height: 1.5 * variables.$default-size;
+      fill: map-get($map: variables.$colors, $key: 'decoration');
+    }
+  }
+
+  .links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: variables.$default-size;
+    padding: 0.5 * variables.$default-size 0;
+    border-top: 1px solid map-get($map: variables.$colors, $key: 'border');
+    border-bottom: 1px solid map-get($map: variables.$colors, $key: 'border');
+
+    @media (min-width: map-get($map: variables.$breakpoints, $key: 'mobile')) {
+      border: none;
+      margin-top: 0;
+    }
+
+    .inactive {
+      @extend %navlink-shared;
+      color: map-get($map: variables.$colors, $key: 'border');
+      fill: map-get($map: variables.$colors, $key: 'border');
+
+      &:hover {
+        color: map-get($map: variables.$colors, $key: 'decoration');
+        fill: map-get($map: variables.$colors, $key: 'decoration');
+      }
+    }
+
+    .active {
+      @extend %navlink-shared;
+      color: map-get($map: variables.$colors, $key: 'decoration');
+      fill: map-get($map: variables.$colors, $key: 'decoration');
+    }
+  }
 }

@@ -1,0 +1,40 @@
+@use '../../styles/variables';
+
+.footer {
+  margin-top: variables.$default-size;
+  border-top: 1px solid map-get($map: variables.$colors, $key: 'border');
+  text-align: center;
+
+  .infoCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    @media (min-width: (1.3 * map-get($map: variables.$breakpoints, $key: 'mobile'))) {
+      align-items: flex-start;
+      flex-flow: row wrap;
+      column-gap: variables.$default-size;
+    }
+
+    .infoCardContent {
+      text-align: justify;
+      padding-top: 0.5 * variables.$default-size;
+      font-size: 0.8 * variables.$default-size;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      @media (min-width: (1.3 * map-get($map: variables.$breakpoints, $key: 'mobile'))) {
+        flex: 1 1 0.5 * map-get($map: variables.$breakpoints, $key: 'mobile');
+      }
+    }
+  }
+
+  .copyright {
+    margin-top: variables.$default-size;
+    padding-top: 0.5 * variables.$default-size;
+    border-top: 1px solid map-get($map: variables.$colors, $key: 'border');
+    color: map-get($map: variables.$colors, $key: 'decoration');
+  }
+}

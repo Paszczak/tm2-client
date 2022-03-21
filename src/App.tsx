@@ -1,10 +1,5 @@
 // Node libs
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Pages
 import Home from './pages/Home';
@@ -12,20 +7,22 @@ import School from './pages/School';
 
 // Components
 import { Layout } from './components/layout/layout';
-
-// Style
-import './App.css';
+import { Params } from './components/testing/params';
 
 export default function App() {
   return (
     <Router>
-      <Layout>
-        <Routes>
-          <Route path='/' element={<Navigate to='/home' />} />
-          <Route path='/home' element={<Home />} />
-          <Route path='/school' element={<School />} />
-        </Routes>
-      </Layout>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path='home' element={<Home />} />
+          <Route path='home/:newsId' element={<Params />} />
+          <Route path='school' element={<School />}>
+            <Route path=':contentId' element={<Params />} />
+          </Route>
+          <Route path='*' element={<p>Noyhing here</p>} />
+        </Route>
+      </Routes>
     </Router>
   );
 }

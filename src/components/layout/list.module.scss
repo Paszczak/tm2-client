@@ -1,0 +1,28 @@
+@use '../../styles/variables';
+
+.list {
+  width: 100%;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  row-gap: 0.5 * variables.$default-size;
+  flex: 1;
+
+  @media (min-width: map-get($map: variables.$breakpoints, $key: 'mobile')) {
+    align-items: flex-start;
+    flex-flow: row wrap;
+    column-gap: 0.5 * variables.$default-size;
+  }
+
+  li {
+    width: 100%;
+
+    @media (min-width: map-get($map: variables.$breakpoints, $key: 'mobile')) {
+      flex: 1 1 0.5 * map-get($map: variables.$breakpoints, $key: 'mobile');
+    }
+  }
+}

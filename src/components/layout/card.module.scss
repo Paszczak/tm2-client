@@ -1,0 +1,11 @@
+@use '../../styles/variables';
+
+.card {
+  padding: 0.5 * variables.$default-size;
+  border: 1px solid map-get($map: variables.$colors, $key: 'border');
+
+  &:hover {
+    cursor: pointer;
+    border: 1px solid map-get($map: variables.$colors, $key: 'decoration');
+  }
+}
