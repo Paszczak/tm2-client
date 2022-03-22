@@ -8,7 +8,6 @@
     "@graphql-tools/schema": "^8.3.3",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
-    "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.4.1",
     "@types/node": "^16.11.26",
     "@types/react": "^17.0.40",
@@ -45,5 +44,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^8.11.3",
+    "@testing-library/user-event": "^13.5.0",
+    "cypress": "^9.5.2",
+    "eslint-plugin-cypress": "^2.12.1"
   }
 }

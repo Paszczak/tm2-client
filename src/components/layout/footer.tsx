@@ -20,7 +20,15 @@ export function Footer(): JSX.Element {
         </div>
       </div>
       <div className={classes.copyright}>
-            <small>{new Date().getFullYear()} &copy; Pracownia P2</small>
+        <small>
+          {new Date().getFullYear()} &copy;{' '}
+          <a
+            className={classes.footerLink}
+            href='https://pracowniap2.pl'
+            target='_blank'>
+            Pracownia P2
+          </a>
+        </small>
       </div>
     </footer>
   );

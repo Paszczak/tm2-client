@@ -1,0 +1,63 @@
+@use '../../styles/variables';
+
+%class-common {
+  text-decoration: none;
+  appearance: none;
+  color: map-get($map: variables.$colors, $key: 'border');
+
+  div {
+    padding: 0.5 * variables.$default-size;
+  }
+
+  &:hover {
+    cursor: pointer;
+    border: 1px solid map-get($map: variables.$colors, $key: 'decoration');
+    color: map-get($map: variables.$colors, $key: 'decoration');
+  }
+}
+
+// .active {
+//   @extend %class-common;
+//   background-color: map-get($map: variables.$colors, $key: 'decoration');
+//   border: 1px solid map-get($map: variables.$colors, $key: 'decoration');
+//   color: map-get($map: variables.$colors, $key: 'background');
+
+//   &:hover {
+//     background-color: map-get($map: variables.$colors, $key: 'background');
+//     color: map-get($map: variables.$colors, $key: 'decoration');
+//   }
+// }
+
+// .inactive {
+//   @extend %class-common;
+// }
+
+.active {
+  @extend %class-common;
+
+  div {
+    background-color: map-get($map: variables.$colors, $key: 'decoration');
+    border: 1px solid map-get($map: variables.$colors, $key: 'decoration');
+    color: map-get($map: variables.$colors, $key: 'background');
+  }
+
+  &:hover div {
+    background-color: map-get($map: variables.$colors, $key: 'background');
+    color: map-get($map: variables.$colors, $key: 'decoration');
+  }
+}
+
+.inactive {
+  @extend %class-common;
+
+  div {
+    background-color: map-get($map: variables.$colors, $key: 'background');
+    border: 1px solid map-get($map: variables.$colors, $key: 'border');
+    color: map-get($map: variables.$colors, $key: 'border');
+  }
+
+  &:hover div {
+    border: 1px solid map-get($map: variables.$colors, $key: 'decoration');
+    color: map-get($map: variables.$colors, $key: 'decoration');
+  }
+}

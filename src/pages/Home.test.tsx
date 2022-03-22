@@ -1,4 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react';
+
+// Components
 import Home, { GET_NEWS } from './Home';
 
 // Apollo testimg mock server
@@ -32,11 +34,11 @@ test('renders without error', async () => {
   mockedRender(<Home />, {
     mocks: {
       Query: {
-        getNews: getNewsSpy
-      }
-    }
+        getNews: getNewsSpy,
+      },
+    },
   });
- await waitFor(() => expect(getNewsSpy).toHaveBeenCalled());
+  await waitFor(() => expect(getNewsSpy).toHaveBeenCalled());
 });
 
 // test('renders learn react link', () => {

@@ -3,9 +3,9 @@
 .card {
   padding: 0.5 * variables.$default-size;
   border: 1px solid map-get($map: variables.$colors, $key: 'border');
+  cursor: pointer;
 
   &:hover {
-    cursor: pointer;
     border: 1px solid map-get($map: variables.$colors, $key: 'decoration');
   }
 }

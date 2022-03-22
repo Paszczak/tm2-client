@@ -1,0 +1,16 @@
+@use '../../styles/variables';
+
+.contentTitle {
+  margin-top: 0;
+  color: map-get($map: variables.$colors, $key: 'decoration');
+  font-size: variables.$default-size;
+}
+
+.contentBody {
+  font-size: variables.$default-size;
+}
+
+.contentFooter {
+  font-size: 0.7 * variables.$default-size;
+  color: map-get($map: variables.$colors, $key: 'border');
+}

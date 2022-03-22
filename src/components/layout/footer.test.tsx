@@ -1,8 +1,8 @@
-import {render, screen} from '@testing-library/react';
-import {Footer} from './footer';
+import { render, screen } from '@testing-library/react';
+import { Footer } from './footer';
 
 test('is visible', () => {
-  render(<Footer />)
+  render(<Footer />);
 
-  expect(screen.getByText(/Pracownia P2/i)).toBeVisible()
-})
+  expect(screen.getByText(/Pracownia P2/i)).toBeVisible();
+});

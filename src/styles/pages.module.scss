@@ -3,10 +3,19 @@
 .main {
   flex: 1;
   overflow: scroll;
-  max-height: 60vh;
+  max-height: 52.5vh;
+
+  @media (min-width: map-get($map: variables.$breakpoints, $key: 'mobile')) {
+    max-height: none;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   h1 {
     margin-top: 0;
     color: map-get($map: variables.$colors, $key: 'decoration');
+    font-size: 1.5 * variables.$default-size;
   }
 }

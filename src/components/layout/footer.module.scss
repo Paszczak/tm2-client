@@ -35,6 +35,15 @@
     margin-top: variables.$default-size;
     padding-top: 0.5 * variables.$default-size;
     border-top: 1px solid map-get($map: variables.$colors, $key: 'border');
-    color: map-get($map: variables.$colors, $key: 'decoration');
+    color: map-get($map: variables.$colors, $key: 'border');
+
+    .footerLink {
+      text-decoration: none;
+      color: map-get($map: variables.$colors, $key: 'border');
+
+      &:hover {
+        color: map-get($map: variables.$colors, $key: 'decoration');
+      }
+    }
   }
 }

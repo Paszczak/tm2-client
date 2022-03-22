@@ -8,6 +8,7 @@ import School from './pages/School';
 // Components
 import { Layout } from './components/layout/layout';
 import { Params } from './components/testing/params';
+import { ClassContent } from './components/school/class-content';
 
 export default function App() {
   return (
@@ -18,7 +19,7 @@ export default function App() {
           <Route path='home' element={<Home />} />
           <Route path='home/:newsId' element={<Params />} />
           <Route path='school' element={<School />}>
-            <Route path=':contentId' element={<Params />} />
+            <Route path=':classId' element={<ClassContent />} />
           </Route>
           <Route path='*' element={<p>Noyhing here</p>} />
         </Route>
