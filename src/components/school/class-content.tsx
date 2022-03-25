@@ -14,6 +14,7 @@ import { Backdrop } from '../layout/backdrop';
 import { Content } from '../../models';
 import useModalTransition from '../../hooks/use-modal-transition';
 import { ContentItem } from './content-item';
+import { ContentModal } from './content-modal';
 
 export const GET_CLASS_DATA = gql`
   query GetClassData($getClassDataId: String) {
@@ -84,21 +85,10 @@ export function ClassContent(): JSX.Element {
               onClose={closeModalHandler}
               style={style}>
               {modalContent ? (
-                <>
-                  <p>{modalContent.body}</p>
-                  <div>
-                    <b>Pliki</b>
-                  </div>
-                  {modalContent.files ? (
-                    <ul>
-                      {modalContent.files.map((file) => (
-                        <li key={file}>{file}</li>
-                      ))}
-                    </ul>
-                  ) : (
-                    'Nie ma żadnych plików.'
-                  )}
-                </>
+                <ContentModal
+                  body={modalContent.body}
+                  files={modalContent.files}
+                />
               ) : (
                 ''
               )}
@@ -109,7 +99,7 @@ export function ClassContent(): JSX.Element {
   ) : (
     <>
       <h3>{data.getClassData.name}</h3>
-      <div data-testId='class-content'>Nie ma żadnych materiałów</div>
+      <div data-testid='class-content'>Nie ma żadnych materiałów</div>
       <small></small>
     </>
   );

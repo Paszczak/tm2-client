@@ -52,6 +52,7 @@ export default function School(): JSX.Element {
         <List
           items={data.getYears[0].classes ?? []}
           render={(item: Class) => <ClassItem key={item.id} {...item} />}
+          testId='school-classes'
         />
       )}
       <Outlet />

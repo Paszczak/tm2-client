@@ -14,7 +14,7 @@ export function List<ListItem>({
   render: (item: ListItem) => ReactNode;
 }) {
   return (
-    <ul className={classes.list} style={style} data-testId={testId}>
+    <ul className={classes.list} style={style} data-testid={testId}>
       {items.map((item, index) => (
         <li key={index}>{render(item)}</li>
       ))}

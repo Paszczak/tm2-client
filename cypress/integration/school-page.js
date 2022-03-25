@@ -12,21 +12,21 @@ describe('Visit the school page', () => {
   it('can choose a class and get displayed correct answers', () => {
     cy.visit('http://localhost:3000');
     cy.contains('Szkoła').click();
-    cy.get('ul>li').should('have.length', 3)
+    cy.get('ul[data-testid="school-classes"]>li').should('have.length', 3)
     cy.contains(/harmonia/i).click()
     cy.location().should((loc) => {
       expect(loc.host === '/school/c1')
     })
-    cy.get('ul[data-testId="class-content"]').should('be.visible')
+    cy.get('ul[data-testid="class-content"]').should('be.visible')
     cy.contains(/historia muzyki/i).click()
-    cy.get('div[data-testId="class-content"]').should('be.visible')
+    cy.get('div[data-testid="class-content"]').should('be.visible')
   })
 
   it('can choose a class content', () => {
     cy.visit('http://localhost:3000');
     cy.contains('Szkoła').click();
     cy.contains(/harmonia/i).click()
-    cy.get('ul[data-testId="class-content"]>li').each(($li) => {
+    cy.get('ul[data-testid="class-content"]>li').each(($li) => {
       cy.wrap($li).click()
       cy.get('#backdrop-root').within(() => {
         cy.get('div').should('be.visible')

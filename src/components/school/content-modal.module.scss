@@ -1,0 +1,34 @@
+@use '../../styles/variables';
+
+.filelist {
+  list-style: none;
+  padding-inline-start: 0;
+  line-height: 150%;
+
+  .file {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    color: map-get($map: variables.$colors, $key: 'border');
+
+    .icon {
+      margin-right: 0.5 * variables.$default-size;
+      padding-top: 5px;
+
+      svg {
+        height: 1.25 * variables.$default-size;
+        width: auto;
+        stroke: map-get($map: variables.$colors, $key: 'border');
+      }
+    }
+
+    &:hover {
+      color: map-get($map: variables.$colors, $key: 'decoration');
+      .icon svg {
+        stroke: map-get($map: variables.$colors, $key: 'decoration');
+      }
+    }
+  }
+}
