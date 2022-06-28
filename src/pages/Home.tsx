@@ -22,6 +22,7 @@ export const GET_NEWS = gql`
     getNews(published: $published, order: $order) {
       id
       title
+      lead
       body
       created
     }
@@ -98,7 +99,7 @@ export default function Home(): JSX.Element {
               title={modalContent ? modalContent.title : ''}
               onClose={closeModalHandler}
               style={style}>
-              <p role='article'>{modalContent?.body}</p>
+              {modalContent ? modalContent?.body : ''}
             </Modal>
           )
       )}

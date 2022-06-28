@@ -15,12 +15,12 @@ test('modal shows the children and a close button', () => {
   // Act
   render(
     <Modal title='Modal title' onClose={handleClose} style={{ opacity: 1 }}>
-      <div>test</div>
+      ##Hello *World*
     </Modal>
   );
   // Assert
   expect(screen.getByText(/Modal title/i)).toBeTruthy();
-  expect(screen.getByText(/test/i)).toBeTruthy();
+  expect(screen.getByText(/hello world/i)).toBeTruthy();
 
   // Act
   fireEvent.click(screen.getByRole('button'));

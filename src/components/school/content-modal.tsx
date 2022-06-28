@@ -6,7 +6,7 @@ import classes from './content-modal.module.scss';
 
 // Props type
 type ContentModalProps = {
-  body: string | undefined;
+  body: string;
   files: string[] | undefined;
 };
 
@@ -24,19 +24,21 @@ export function ContentModal({ body, files }: ContentModalProps): JSX.Element {
       </div>
       {files ? (
         <ul className={classes.filelist}>
-          {files.map((file) => (
-            <li key={file}>
-              <a
-                className={classes.file}
-                href={`http://localhost:8000/api/files?filename=${file}`}
-                download>
-                <span className={classes.icon}>
-                  <DownloadIcon />
-                </span>
-                <span>{file}</span>
-              </a>
-            </li>
-          ))}
+          {files.map((file, index) => {
+            const filenameShortString = file.split('?')[0];
+            const lastSlash = filenameShortString.lastIndexOf('/');
+            const filename = filenameShortString.slice(lastSlash + 1);
+            return (
+              <li key={`file_${index}`}>
+                <a className={classes.file} href={file} target='_blank'>
+                  <span className={classes.icon}>
+                    <DownloadIcon />
+                  </span>
+                  <span>{filename}</span>
+                </a>
+              </li>
+            );
+          })}
         </ul>
       ) : (
         'Nie ma żadnych plików.'

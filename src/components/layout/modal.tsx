@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { createPortal } from 'react-dom';
+import ReactMarkdown from 'react-markdown';
 
 // Animations
 import { animated } from 'react-spring';
@@ -18,7 +19,7 @@ export function Modal({
 }: {
   title: string;
   onClose: () => void;
-  children: ReactNode;
+  children: string | ReactNode;
   style: any;
 }): React.ReactPortal | null {
   const modalRoot = document.getElementById('modal-root') as HTMLDivElement;
@@ -31,7 +32,13 @@ export function Modal({
         </div>
         <h3>{title}</h3>
       </div>
-      {children}
+      <article className={classes.content}>
+        {typeof children === 'string' ? (
+          <ReactMarkdown>{children}</ReactMarkdown>
+        ) : (
+          children
+        )}
+      </article>
     </animated.div>,
     modalRoot
   );

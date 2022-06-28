@@ -6,7 +6,7 @@
   max-height: 52.5vh;
 
   @media (min-width: map-get($map: variables.$breakpoints, $key: 'mobile')) {
-    max-height: none;
+    max-height: 60vh;
   }
 
   &::-webkit-scrollbar {

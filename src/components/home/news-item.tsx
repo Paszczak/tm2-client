@@ -2,16 +2,17 @@ import classes from './news-item.module.scss';
 
 type NewsItemProps = {
   title: string;
+  lead: string;
   body: string;
   created: string;
 };
 
-export function NewsItem({ title, body, created }: NewsItemProps): JSX.Element {
+export function NewsItem({ title, lead, created }: NewsItemProps): JSX.Element {
   return (
     <>
       <h3 className={classes.newsTitle}>{title}</h3>
       <p role='article' className={classes.newsBody}>
-        {body.substring(0, 100)}...
+        {lead}...
       </p>
       <div className={classes.newsFooter} role='contentinfo'>
         Utworzone:{' '}

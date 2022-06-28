@@ -4,10 +4,6 @@ import ErrorBoundary from '../../hoc/error-boundary';
 import { Footer } from './footer';
 import { Navigation } from './navigation';
 
-// type LayoutProps = {
-//   children: ReactNode;
-// };
-
 export function Layout(): ReactElement {
   return (
     <>

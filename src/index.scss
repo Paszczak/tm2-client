@@ -13,6 +13,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   padding: variables.$default-size;
   max-width: 45 * variables.$default-size;
+  height: 100vh;
+  overflow: scroll;
+
+  @media (min-width: map-get($map: variables.$breakpoints, $key: 'mobile')) {
+    padding: variables.$default-size 0;
+  }
 }
 
 code {

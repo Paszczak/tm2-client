@@ -14,6 +14,7 @@ export type Content = {
 export type News = {
   id: string;
   title: string;
+  lead: string;
   body: string;
   created: string;
 };

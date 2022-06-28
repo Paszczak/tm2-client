@@ -2,8 +2,9 @@
 
 .modal {
   position: absolute;
-  left: 0;
   top: 20vh;
+  left: 0;
+  width: calc(100% - 2 * variables.$default-size);
   min-height: 50vh;
   max-height: 70vh;
   margin: 0 variables.$default-size;
@@ -15,11 +16,13 @@
   z-index: 100;
 
   @media (min-width: map-get($map: variables.$breakpoints, $key: 'mobile')) {
-    max-width: 80vw;
-    margin: 0 10vw;
+    max-width: 45 * variables.$default-size;
+    margin: 0;
+    left: auto;
   }
 
   .header {
+    width: 100%;
     border-bottom: 1px solid map-get($map: variables.$colors, $key: 'border');
     margin-bottom: variables.$default-size;
     h3 {
@@ -43,5 +46,9 @@
         width: auto;
       }
     }
+  }
+
+  .content {
+    width: 100%;
   }
 }
